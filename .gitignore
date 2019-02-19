@@ -1,5 +1,4 @@
 s
 performances*
-run
 scrape_tensorboard.py
 *.npz
