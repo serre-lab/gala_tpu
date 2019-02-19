@@ -7,7 +7,7 @@ The fastest way to get started training a model on a Cloud TPU is by following
 the tutorial. Click the button below to launch the tutorial using Google Cloud
 Shell.
 
-[![Open in Cloud Shell](//gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=http://serre-lab/gala_tpu)
+[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fserre-lab%2Fgala_tpu)
 
 If you would like to make any fixes or improvements to the models, please
 [submit a pull request](https://github.com/tensorflow/tpu-demos/compare)!
