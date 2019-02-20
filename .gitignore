@@ -1,4 +1,6 @@
 s
+*.pyc
+__pycache__
 performances*
 scrape_tensorboard.py
 *.npz
