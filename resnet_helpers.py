@@ -149,7 +149,7 @@ class LayerHelper:
 
     # Also calculate se attention
     if include_fa:
-      fa_map = self.feature_attention(
+      fa_map = self.feature_attention_se(
           bottom=bottom,
           intermediate_nl=intermediate_nl,
           squash=None,

@@ -337,7 +337,7 @@ def resnet_model_fn(features, labels, mode, params):
           apply_to="outputs",
           use_tpu=FLAGS.use_tpu,
           data_format=FLAGS.data_format)
-    elif FLAGS.resnet_depth.startswith("se-v1_"):
+    elif FLAGS.resnet_depth.startswith("SE-v1_"):
       print(
           "\n\n\n\n\nUSING RESNET V1 (Squeeze-and-excite) {}\n\n\n\n\n".format(resnet_size))
       network = resnet_model.resnet_v1(
@@ -457,9 +457,13 @@ def resnet_model_fn(features, labels, mode, params):
         d = tf.nn.l2_loss(dist * mask)
         map_loss_list += [d]
     denominator = len(attention)
-    map_loss = (
-        tf.add_n(map_loss_list) / float(denominator)) * 1.  # (1. / 20.)
-    loss += map_loss
+    if len(map_loss_list):
+      denominator = len(attention)
+      map_loss = (
+          tf.add_n(map_loss_list) / float(denominator)) * 1.
+      loss += map_loss
+    else:
+      assert not FLAGS.resnet_depth.startswith("GALA") or not FLAGS.resnet_depth.startswith("SE"), "Failed to apply attention."
   loss += (WEIGHT_DECAY * tf.add_n(
       [tf.nn.l2_loss(v) for v in tf.trainable_variables()
        if 'batch_normalization' not in v.name and

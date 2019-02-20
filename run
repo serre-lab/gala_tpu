@@ -1,6 +1,6 @@
 #!/bin/bash
-TPU_NAME=v3-1
-RESNETDEPTH=gala-v2_50
+TPU_NAME=v2-2
+RESNETDEPTH=GALA-v2_50
 ANNOTATIONS=hms
 DATA_DIR=gs://serrelab-public/clickme
 PYTHON_PATH=$PYTHON_PATH:$(pwd)

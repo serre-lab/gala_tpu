@@ -297,13 +297,13 @@ class Resnet:
           feature_attention=False,
           block_id=None):
     if self.apply_to == 'input':
-      if feature_attention == 'paper':
-        inputs = self.layer_helpers.feature_attention(
+      if feature_attention == 'se' or feature_attention == 'SE':
+        inputs = self.layer_helpers.feature_attention_se(
             bottom=inputs,
             name=block_id,
             training=training)
-      elif feature_attention == 'fc':
-        inputs = self.layer_helpers.feature_attention_fc(
+      elif feature_attention == 'gala' or feature_attention == 'GALA':
+        inputs = self.layer_helpers.feature_attention_gala(
             bottom=inputs,
             name=block_id,
             training=training,
@@ -333,13 +333,13 @@ class Resnet:
 
     # Feature attention applied to the dense path
     if self.apply_to == 'output':
-      if feature_attention == 'paper':
-        inputs = self.layer_helpers.feature_attention(
+      if feature_attention == 'se' or feature_attention == 'SE':
+        inputs = self.layer_helpers.feature_attention_se(
             bottom=inputs,
             name=block_id,
             training=training)
-      elif feature_attention == 'fc':
-        inputs = self.layer_helpers.feature_attention_fc(
+      elif feature_attention == 'gala' or feature_attention == 'GALA':
+        inputs = self.layer_helpers.feature_attention_gala(
             bottom=inputs,
             name=block_id,
             training=training,
