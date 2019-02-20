@@ -4,13 +4,15 @@ RESNETDEPTH=GALA-v2_50
 ANNOTATIONS=hms
 DATA_DIR=gs://serrelab-public/clickme
 PYTHON_PATH=$PYTHON_PATH:$(pwd)
-BUCKET=gs://performances-tpu-$RESNETDEPTH-$ANNOTATIONS; \
+BUCKET=gs://serrelab/performances-tpu-$RESNETDEPTH-$ANNOTATIONS; \
 # gsutil rm -r $BUCKET;
-gsutil mkdir $BUCKET; \
+echo $BUCKET
+# gsutil mkdir $BUCKET; \
 python3 resnet_main.py \
   --tpu_name=$TPU_NAME \
   --data_dir=$DATA_DIR \
   --model_dir=$BUCKET \
   --annotation=$ANNOTATIONS \
   --resnet_depth=$RESNETDEPTH | tee -a performances-tpu-$RESNETDEPTH
+
 
