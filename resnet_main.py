@@ -460,7 +460,7 @@ def resnet_model_fn(features, labels, mode, params):
     if len(map_loss_list):
       denominator = len(attention)
       map_loss = (
-          tf.add_n(map_loss_list) / float(denominator)) * 1.
+          tf.add_n(map_loss_list) / float(denominator)) * 1e-5
       loss += map_loss
     else:
       assert not FLAGS.resnet_depth.startswith("GALA") or not FLAGS.resnet_depth.startswith("SE"), "Failed to apply attention."
