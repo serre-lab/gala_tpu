@@ -162,7 +162,7 @@ def _flip(image):
 
 
 def create_bb(bb_coors, im_size):
-  """Build bounding box for a single image."""
+  """DEPRECIATED: Convert ClickMe mask into a bounding box mask for an image."""
   bb_coors = tf.cast(tf.squeeze(bb_coors), tf.int32)
   he = bb_coors[0]
   wi = bb_coors[1]
